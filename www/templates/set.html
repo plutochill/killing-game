@@ -6,21 +6,28 @@
 
 <ion-content class="has-header">
 
-  <h4>平民角色</h4>
-  <div class="item row">
+
+  <div class="row">
+    <div class="col"><h4>平民角色</h4></div>
+    <div class="col col-10"><button class="button button-small pull-right">r</button></div>
+  </div>
+  <div class="item row" ng-repeat="person in vm.data.normalPerson track by $index">
     <div class="col">
       <div class="item-input-inset">
         <label class="item-input-wrapper">
-          <input type="text" placeholder="角色名">
+          <input type="text" placeholder="角色名" ng-model="person.name">
         </label>
       </div>
     </div>
     <div class="col">
       <div class="item-input-inset">
         <label class="item-input-wrapper">
-          <input type="number" placeholder="数量">
+          <input type="number" placeholder="数量" ng-model="person.number">
         </label>
-        <button class="button button-small">
+        <button class="button button-small" ng-if="!$last" ng-click="vm.removeData('normalPerson', $index)">
+          -
+        </button>
+        <button class="button button-small" ng-if="$last" ng-click="vm.addData('normalPerson')">
           +
         </button>
       </div>

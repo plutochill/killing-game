@@ -1,0 +1,16 @@
+/* 垂直居中 */
+.scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.scroll {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* 卡牌背面 */
+.card {
+  font-size: 120px;
+}

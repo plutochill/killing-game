@@ -1,0 +1,99 @@
+<ion-header-bar class="bar-stable">
+  <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="vm.back()">Back</a>
+  <h1 class="title">{{vm.title}}</h1>
+  <span class="button button-clear button-dark">总人数12</span>
+</ion-header-bar>
+
+<ion-content class="has-header">
+
+  <h4>平民角色</h4>
+  <div class="item row">
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="角色名">
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="数量">
+        </label>
+        <button class="button button-small">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <h4>好人角色</h4>
+  <div class="item row">
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="角色名">
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="数量">
+        </label>
+        <button class="button button-small">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h4>坏人角色</h4>
+  <div class="item row">
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="角色名">
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="数量">
+        </label>
+        <button class="button button-small">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h4>超级力量中立方</h4>
+  <div class="item row">
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="角色名">
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="数量">
+        </label>
+        <button class="button button-small">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer-bar class="bar-energized row-no-padding">
+  <h1 class="title" ui-sref="deal({number: 1, status: 1})">开始游戏</h1>
+</ion-footer-bar>

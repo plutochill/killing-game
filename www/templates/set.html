@@ -1,106 +1,122 @@
 <ion-header-bar class="bar-stable">
   <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="vm.back()">Back</a>
   <h1 class="title">{{vm.title}}</h1>
-  <span class="button button-clear button-dark">总人数12</span>
+  <span class="button button-clear button-dark">总人数{{vm.sum}}</span>
 </ion-header-bar>
 
-<ion-content class="has-header">
 
+<form name="myForm">
+  <ion-content class="has-header">
 
-  <div class="row">
-    <div class="col"><h4>平民角色</h4></div>
-    <div class="col col-10"><button class="button button-small pull-right">r</button></div>
-  </div>
-  <div class="item row" ng-repeat="person in vm.data.normalPerson track by $index">
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="角色名" ng-model="person.name">
-        </label>
+    <div class="row">
+      <div class="col"><h4>平民角色</h4></div>
+      <div class="col col-10">
+        <button class="button button-small button-full ion-plus" ng-click="vm.addData('normalPerson')"> 增加一个角色</button>
       </div>
     </div>
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="number" placeholder="数量" ng-model="person.number">
-        </label>
-        <button class="button button-small" ng-if="!$last" ng-click="vm.removeData('normalPerson', $index)">
-          -
-        </button>
-        <button class="button button-small" ng-if="$last" ng-click="vm.addData('normalPerson')">
-          +
-        </button>
+    <div class="item row" ng-repeat="person in vm.data.normalPerson track by $index">
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="角色名" ng-model="person.name" required>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="number" placeholder="数量" ng-model="person.number" ng-change="vm.calculate()">
+          </label>
+          <button class="button button-small" ng-click="vm.removeData('normalPerson', $index)">
+            -
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
 
-  <h4>好人角色</h4>
-  <div class="item row">
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="角色名">
-        </label>
+    <div class="row">
+      <div class="col"><h4>正派角色</h4></div>
+      <div class="col col-10">
+        <button class="button button-small button-full ion-plus" ng-click="vm.addData('goodPerson')"> 增加一个角色</button>
       </div>
     </div>
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="number" placeholder="数量">
-        </label>
-        <button class="button button-small">
-          +
-        </button>
+    <div class="item row" ng-repeat="person in vm.data.goodPerson track by $index">
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="角色名" ng-model="person.name" required>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="number" placeholder="数量" ng-model="person.number" ng-change="vm.calculate()">
+          </label>
+          <button class="button button-small" ng-click="vm.removeData('goodPerson', $index)">
+            -
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <h4>坏人角色</h4>
-  <div class="item row">
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="角色名">
-        </label>
+    <div class="row">
+      <div class="col"><h4>反派角色</h4></div>
+      <div class="col col-10">
+        <button class="button button-small button-full ion-plus" ng-click="vm.addData('badPerson')"> 增加一个角色</button>
       </div>
     </div>
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="number" placeholder="数量">
-        </label>
-        <button class="button button-small">
-          +
-        </button>
+    <div class="item row" ng-repeat="person in vm.data.badPerson track by $index">
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="角色名" ng-model="person.name" required>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="number" placeholder="数量" ng-model="person.number" ng-change="vm.calculate()">
+          </label>
+          <button class="button button-small" ng-click="vm.removeData('badPerson', $index)">
+            -
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <h4>超级力量中立方</h4>
-  <div class="item row">
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="角色名">
-        </label>
+    <div class="row">
+      <div class="col"><h4>超级力量中立角色</h4></div>
+      <div class="col col-10">
+        <button class="button button-small button-full ion-plus" ng-click="vm.addData('superPerson')"> 增加一个角色</button>
       </div>
     </div>
-    <div class="col">
-      <div class="item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="number" placeholder="数量">
-        </label>
-        <button class="button button-small">
-          +
-        </button>
+    <div class="item row" ng-repeat="person in vm.data.superPerson track by $index">
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="角色名" ng-model="person.name">
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="number" placeholder="数量" ng-model="person.number" ng-change="vm.calculate()">
+          </label>
+          <button class="button button-small" ng-click="vm.removeData('superPerson', $index)">
+            -
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-</ion-content>
+  </ion-content>
 
 
-<ion-footer-bar class="bar-energized row-no-padding">
-  <h1 class="title" ui-sref="deal({number: 1, status: 1})">开始游戏</h1>
-</ion-footer-bar>
+  <ion-footer-bar class="bar-clear row-no-padding">
+    <button class="button button-full button-energized" ng-click="vm.start()" ng-disabled="myForm.$invalid || vm.sum < 6">开始游戏</button>
+  </ion-footer-bar>
+</form>

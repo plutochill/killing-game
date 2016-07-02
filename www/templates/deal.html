@@ -1,19 +1,31 @@
 <ion-content>
 
-  <!--<div class="row row-center">
-    <div class="col col-center">
-      <i class="ion-social-freebsd-devil card"></i>
+  <div ng-show="vm.status == 1">
+    <div class="row row-center">
+      <div class="col col-center">
+        <i class="ion-social-freebsd-devil card" ng-click="vm.next()"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h5 class="text-center">{{+vm.number + 1}}号选手点击牌查看角色</h5>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <h5>1号点击翻牌查看角色</h5>
-    </div>
-  </div>-->
 
-  <div class="row row-center">
-    <div class="col col-center">
-      <h5>1号的角色是：</h5>
+  <div ng-show="vm.status == 2">
+    <div class="row row-center">
+      <div class="col col-center">
+        <i class="ion-social-freebsd-devil card" ng-click="vm.next()"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h5 class="text-center" ng-if="vm.version == 1">{{+vm.number + 1}}号选手的角色是：{{vm.roles[vm.number]}}</h5>
+        <h5 class="text-center" ng-if="vm.version == 2">{{+vm.number + 1}}号选手的角色是：上身份——{{vm.roles[vm.number][0]}} | 下身份——{{vm.roles[vm.number][1]}}</h5>
+
+        <p class="text-center">点击牌面隐藏你角色，并传递给下一位选手</p>
+      </div>
     </div>
   </div>
 

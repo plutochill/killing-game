@@ -22,12 +22,33 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 
+   /* $rootScope.global = {
+      version: '2',
+      normalPerson: [{
+        name: '',
+        number: 0
+      }],
+      goodPerson: [{
+        name: '',
+        number: 0
+      }],
+      badPerson: [{
+        name: '',
+        number: 0
+      }],
+      superPerson: [{
+        name: '',
+        number: 0
+      }],
+      sum: {}
+    };*/
     $rootScope.global = {
-      version: '',
-      normalPerson: 0,
-      goodPerson: 0,
-      badPerson: 0,
-      superPerson: 0
+      "version":"2",
+      "normalPerson":[{"name":"平民","number":8}],
+      "goodPerson":[{"name":"警察","number":2}],
+      "badPerson":[{"name":"杀手","number":2}],
+      "superPerson":[{"name":"狙击手","number":1},{"name":"医生","number":1}],
+      "sum":{"normalPerson":8,"goodPerson":2,"badPerson":2,"superPerson":2}
     };
 })
   .config(function($stateProvider, $urlRouterProvider) {
@@ -55,7 +76,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       })
 
       .state('deal', {
-        url: '/deal/:number/:status', // number表示玩家号数，status标识牌面状态（1.背面 2.正面 3.再次回到背面）
+        url: '/deal',
         title: '发牌',
         templateUrl: 'templates/deal.html',
         controller: 'DealCtrl',

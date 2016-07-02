@@ -1,16 +1,14 @@
 /* 垂直居中 */
-/*
-.scroll-content {
+.row-center {
   display: table !important;
   width: 100% !important;
   height: 100% !important;
 }
-.scroll {
+.col-center {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
-*/
 
 /* 卡牌背面 */
 .card {

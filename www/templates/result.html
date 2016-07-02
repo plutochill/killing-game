@@ -1,9 +1,17 @@
-<ion-content>
-  <ion-header-bar class="bar-stable">
-    <h1 class="title">{{vm.title}}</h1>
-  </ion-header-bar>
+<ion-header-bar class="bar-stable">
+  <h1 class="title">{{vm.title}}</h1>
+</ion-header-bar>
 
-  <ion-footer-bar class="bar-energized row-no-padding">
-    <h1 class="title" ui-sref="set">游戏结束</h1>
-  </ion-footer-bar>
+<ion-content>
+  <ion-list>
+    <ion-item ng-repeat="list in vm.lists">
+      <h2 ng-if="vm.version == 1">{{+$index + 1}}号角色身份：{{list}}</h2>
+      <h2 ng-if="vm.version == 2">{{+$index + 1}}号角色身份：上{{list[0]}} | 下{{list[1]}}</h2>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
+
+<ion-footer-bar class="bar-energized row-no-padding">
+  <h1 class="title" ng-click="vm.over()">游戏结束</h1>
+</ion-footer-bar>

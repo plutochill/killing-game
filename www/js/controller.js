@@ -6,13 +6,13 @@ angular.module('starter.controllers', [])
 
     vm.toSet = function(version) {
       $rootScope.global.version = version;
-      $state.go('set');
+      $state.go('set',{},{reload: true});
     };
 
   })
 
 
-  .controller('SetCtrl', function($state, $scope, $rootScope, $ionicHistory) {
+  .controller('SetCtrl', function($state, $scope, $rootScope) {
     var vm = this;
     vm.title = $state.current.title;
 
@@ -21,7 +21,6 @@ angular.module('starter.controllers', [])
     vm.back = function() {
       $state.go('dash');
     };
-
 
     vm.data = {
       normalPerson: $rootScope.global.normalPerson,
@@ -82,7 +81,7 @@ angular.module('starter.controllers', [])
       $rootScope.global.superPerson = vm.data.superPerson;
       $rootScope.global.sum = sum;
 
-      $state.go('deal');
+      $state.go('deal',{},{reload: true});
     }
   })
 
@@ -184,30 +183,31 @@ angular.module('starter.controllers', [])
       if (vm.version == 1) {
         if (vm.status < 2) {
           vm.status++;
-        } else if (vm.status == 2) {
-          if (vm.number < sumNumber - 1) {
-            vm.number++;
-            vm.status = 1;
-            $state.go('deal', {number: vm.number});
-          } else {
-            $state.go('result');
-          }
+        } else if (vm.status == 2 && vm.number < sumNumber - 1) {
+          vm.number++;
+          vm.status = 1;
+          $state.go('deal', {number: vm.number});
+        } else {
+          vm.status = 3;
         }
       } else if (vm.version == 2) {
         if (vm.status < 2) {
           vm.status++;
-        } else if (vm.status == 2) {
-          if (vm.number < sumNumber / 2 - 1) {
-            vm.number++;
-            vm.status = 1;
-            $state.go('deal', {number: vm.number});
-          } else {
-            $state.go('result');
-          }
+        } else if (vm.status == 2 && vm.number < sumNumber / 2 - 1) {
+          vm.number++;
+          vm.status = 1;
+          $state.go('deal', {number: vm.number});
+        } else {
+          vm.status = 3;
         }
       }
+    };
 
-    }
+    vm.nextPage = function() {
+      vm.number = 0;
+      vm.status = 1;
+      $state.go('result',{},{reload: true});
+    };
 
   })
 
@@ -224,10 +224,7 @@ angular.module('starter.controllers', [])
     }
     vm.over = function() {
       delete $rootScope.global.roles;
-      $state.go('set');
-    }
-
-
-
+      $state.go('set',{},{reload: true});
+    };
   });
 

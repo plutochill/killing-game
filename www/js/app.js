@@ -45,13 +45,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     $rootScope.global = {
       "version":"2",
       "normalPerson":[{"name":"平民","number":8}],
-      "goodPerson":[{"name":"警察","number":2}],
-      "badPerson":[{"name":"杀手","number":2}],
-      "superPerson":[{"name":"狙击手","number":1},{"name":"医生","number":1}],
-      "sum":{"normalPerson":8,"goodPerson":2,"badPerson":2,"superPerson":2}
+      "goodPerson":[{"name":"警察","number":1},{"name":"大警察","number":1}],
+      "badPerson":[{"name":"杀手","number":1},{"name":"大杀手","number":1}],
+      "superPerson":[{"name":"狙击手","number":1},{"name":"医生","number":1}]
     };
 })
+  .config(function($ionicConfigProvider) {
+    $ionicConfigProvider.views.maxCache(0);
+  })
   .config(function($stateProvider, $urlRouterProvider) {
+
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
